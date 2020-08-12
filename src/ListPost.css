@@ -1,0 +1,29 @@
+.listPost .header-panel{
+    display: flex;
+    padding: 10px 0;
+}
+
+.listPost .body-panel{
+    display: flex;
+    padding: 5px 0;
+}
+
+.listPost .author-div{
+    width: 100px;
+}
+
+.listPost .title-div{
+    width: 400px;
+}
+
+.listPost .createdAt-div{
+    width: 200px;
+}
+
+.listPost .course-div{
+    width: 200px;
+}
+
+.listPost .isResolved-div{
+    width: 100;
+}

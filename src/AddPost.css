@@ -1,0 +1,21 @@
+input{
+    width: 500px;
+}
+
+textarea{
+    width: 500px;
+    height: 300px;
+}
+
+.panel{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.btnPanel{
+    display: flex;
+}
+
+.panel .title {
+    width: 100px;
+}
