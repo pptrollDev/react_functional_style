@@ -1,21 +1,13 @@
 import './ListPost.css';
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../actions/post';
 
 function ListPost() {
-  // const [posts, setPosts] = useState([]);
-  const [courses, setCourses] = useState([]);
-  const [options, setOptions] = useState({
-    count: 0,
-    current_page: 1,
-    records_per_page: 10,
-    searchStr: '',
-    is_resolved: ''
-  });
-
   const posts = useSelector(state => state.post.posts);
   const dispatch = useDispatch();
+  let listTags = [];
+  let addBtnTag = '';
 
   useEffect(function(){
     getPosts();
@@ -23,52 +15,11 @@ function ListPost() {
     return function(){
       
     }
-  }, []);
+  });
 
   function getPosts(){
     dispatch(actions.getPosts());
   }
-
-  // function getPosts(){
-  //   let newCourses = [];
-  //   let newPosts = [];
-
-  //   fetch('http://localhost:7070/api/courses')
-  //   .then(function(response){
-  //       return response.json();
-  //   })
-  //   .then(function(json){
-  //       newCourses = json.courses;
-
-  //       fetch('http://localhost:7070/api/posts?is_resolved='+options.is_resolved+'&page='+options.current_page+'&s='+options.searchStr)
-  //       .then(function(response){
-  //           return response.json();
-  //       })
-  //       .then(function(json){
-  //           newPosts = json.posts;
-
-  //           if(options.searchStr || options.is_resolved!='')
-  //             options.count = 1;
-  //           else
-  //             options.count = json.count;
-
-  //           setOptions(options);
-            
-  //           newPosts.forEach((post)=>{
-  //               newCourses.forEach((course)=>{
-  //                   if(post.course_id == course.id)
-  //                    post.course_title = course.title
-  //               });
-  //           });
-
-  //           setCourses(newCourses);
-  //           setPosts(newPosts);
-  //       })
-  //   })
-  // }
-
-  let listTags = [];
-  let addBtnTag = '';
 
   listTags.push(
     <div key="header" className="header-panel">

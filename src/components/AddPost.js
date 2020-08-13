@@ -1,14 +1,18 @@
-import React, {useState, useEffect} from 'react';
 import './AddPost.css';
+import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import * as actions from '../actions/course';
 
 function AddPost(){
-    const [courses, setCourses] = useState([]);
     const [forms, setForms] = useState({
         title: '',
         author: '',
         course: '',
         content: ''
     });
+    const courses = useSelector(state => state.course.courses);
+    const dispatch = useDispatch();
+    let optionTags = [];
 
     useEffect(function(){
         getCourses();
@@ -16,25 +20,10 @@ function AddPost(){
         return function(){
           
         }
-      }, []);
+      });
 
     function getCourses(){
-        fetch('http://localhost:7070/api/courses')
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(json){
-            if(json.courses.length>0){
-                let newForms = forms;
-                newForms.course = json.courses[0].id;
-
-                setForms(prev => {
-                    return {...prev, ...newForms};
-                });
-            }
-
-            setCourses(json.courses);
-        });
+        dispatch(actions.getCourses());
     }
 
     function createCourse(){
@@ -78,7 +67,6 @@ function AddPost(){
 
     function handleSubmit(e){
         e.preventDefault();
-        // props.handleSubmit(state.title, state.author, state.course, state.content);
         if(!forms.title || !forms.author || !forms.course || !forms.content){
             window.alert("모든 입력값은 필수값 입니다.");
         }
@@ -92,12 +80,20 @@ function AddPost(){
         }
     }
 
-    let optionTags = [];
+    if(courses.length>0 && forms.course===''){
+        let newForms = forms;
+        newForms.course = courses[0].id;
+
+        setForms(prev => {
+            return {...prev, ...newForms};
+        });
+    }
+
     courses.forEach((course)=>{
         optionTags.push(
             <option key={course.id} value={course.id}>{course.title}</option>       
         );
-    });
+    }); 
 
     return (
         <div>
