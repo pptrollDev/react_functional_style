@@ -27,7 +27,7 @@ const Courses = go(
   map(title => ({ id: course_id++, title })));
 const Posts = go(
   [{
-    author: '인프런',
+    author: '리액트',
     title: '궁금한데 궁금한게 궁금해요.',
     body: '안녕하세요! 궁금한게 궁금해서 질문 올립니다!',
     course_id: 1,
