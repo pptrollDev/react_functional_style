@@ -1,3 +1,4 @@
+import './DetailPost.css';
 import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -38,7 +39,7 @@ function DetailPost(){
     );
 
     return (
-        <div>
+        <div className="detailPost">
             <div>
                 <h2>상세</h2>
             </div>

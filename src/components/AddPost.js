@@ -96,7 +96,7 @@ function AddPost(){
     }); 
 
     return (
-        <div>
+        <div className="addPost">
             <div>
                 <h2>추가</h2>
             </div>   

@@ -1,0 +1,8 @@
+.detailPost .panel{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.detailPost .panel .title {
+    width: 100px;
+}

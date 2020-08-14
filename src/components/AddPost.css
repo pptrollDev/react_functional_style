@@ -1,21 +1,21 @@
-input{
+.addPost input{
     width: 500px;
 }
 
-textarea{
+.addPost textarea{
     width: 500px;
     height: 300px;
 }
 
-.panel{
+.addPost .panel{
     display: flex;
     margin-bottom: 20px;
 }
 
-.btnPanel{
+.addPost .btnPanel{
     display: flex;
 }
 
-.panel .title {
+.addPost .panel .title {
     width: 100px;
 }
